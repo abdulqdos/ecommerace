@@ -13,14 +13,33 @@ export default {
     theme: {
         extend: {
             colors: {
-                'primary': '#1E3A8A',
-                'secondary': '#2563EB',
-                'white': '#E0E0E0a',
-              ...colors,
+                'black': '#090909',
+                'primary-green': '#1db41d',
+                'light-green': '#25FD25',
+                'dark-green' : '#008000',
+                'white': '#E0E0E0',
+                ...colors,
             },
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+                skill: ['Silkscreen', ...defaultTheme.fontFamily.sans],
             },
+            keyframes: {
+                "typing-loop": {
+                    "0%": { width: "0%", borderColor: "primary-green" },
+                    "95%": { width: "100%", borderColor: "primary-green" },
+                    "100%": { width: "100%", borderColor: "transparent" },
+                },
+                blink: {
+                    "0%, 100%": { borderColor: "transparent" },
+                    "50%": { borderColor: "primary-green" },
+                },
+            },
+            animation: {
+                "typing-loop": "typing-loop 4s steps(35) forwards",
+                blink: "blink 0.7s step-end infinite",
+            },
+
         },
     },
     plugins: [],
