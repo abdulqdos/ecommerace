@@ -5,20 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
-
     <title>{{ $title ?? 'Page Title' }}</title>
     @livewireStyles
-
     @vite(['resources/js/app.js', 'resources/css/app.css'])
 </head>
-<body class="selection:bg-primary-green selection:text-white  font-sans ">
-    <nav class="bg-black flex flex-row items-center justify-between text-white p-4 border-b border-gray-300 border-opacity-75">
+<body class="selection:bg-primary-green selection:text-white  font-sans bg-white">
+    <nav class="bg-black flex flex-row items-center justify-between text-white p-4 border-b border-gray-300 border-opacity-75 sticky top-0 z-50">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 text-white transition duration-300 hover:text-primary-green cursor-pointer">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
         </svg>
 
         <ul class="flex flex-row">
             <x-layouts.nav href="/" :active="request()->is('/')" wire:navigate> Home </x-layouts.nav>
+            <x-layouts.nav href="/products" :active="request()->is('products')" wire:navigate> Products </x-layouts.nav>
             <x-layouts.nav href="/categories" :active="request()->is('categories')" wire:navigate> Categories </x-layouts.nav>
             <x-layouts.nav wire:navigate> About </x-layouts.nav>
             <x-layouts.nav wire:navigate> Contact us </x-layouts.nav>
@@ -36,7 +35,7 @@
     </main>
 
     <!-- ========== FOOTER ========== -->
-    <footer class="mt-auto w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto bg-black">
+    <footer class="mt-24 w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto bg-black">
         <!-- Grid -->
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-10">
             <div class="col-span-full hidden lg:col-span-1 lg:block">

@@ -17,7 +17,7 @@ export default {
                 'primary-green': '#1db41d',
                 'light-green': '#25FD25',
                 'dark-green' : '#008000',
-                'white': '#E0E0E0',
+                'white': '#fff',
                 ...colors,
             },
             fontFamily: {

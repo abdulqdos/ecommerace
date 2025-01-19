@@ -1,14 +1,14 @@
-<div >
+<div>
     <x-cards.card-header > {{ $header }}</x-cards.card-header>
 
-    <div class="flex flex-wrap justify-center items-center gap-5 max-w-[1200px]">
+    <div class="flex flex-wrap justify-center items-center gap-5 max-w-[1200px] mx-auto">
         @foreach($items as $item)
             <div
                 class="flex flex-col bg-white rounded-md w-1/3 max-w-xs gap-3 border border-gray-300 shadow-lg pb-4">
                 <a
                     wire:navigate
-                     href="{{ route('item.show' , ['item' => $item->id]) }}"
-                     class="overflow-hidden">
+                    href="{{ route('item.show' , ['item' => $item->id]) }}"
+                    class="overflow-hidden">
                     <img
                         src="{{ $item->img_url  }}"
                         alt="Product Image"

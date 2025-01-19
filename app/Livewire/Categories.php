@@ -8,6 +8,7 @@ use Livewire\Component;
 
 class Categories extends Component
 {
+    public $header = 'أقسامنا';
     #[Title("Categories")]
     public function render()
     {
