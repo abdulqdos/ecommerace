@@ -11,9 +11,23 @@
 </head>
 <body class="selection:bg-primary-green selection:text-white  font-sans bg-white">
     <nav class="bg-black flex flex-row items-center justify-between text-white p-4 border-b border-gray-300 border-opacity-75 sticky top-0 z-50">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 text-white transition duration-300 hover:text-primary-green cursor-pointer">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
-        </svg>
+        <div class="flex flex-row gap-4 items-center justify-center">
+            @guest
+                <a
+                    href="/login"
+                    wire:navigate
+                    class="bg-black border px-3 py-1 border-white rounded-full hover:bg-gray-700 hover:bg-opacity-75  transition duration-300 text-xs"
+                > Login </a>
+                <a
+                    href="/signup"
+                    wire:navigate
+                    class="bg-white text-black border px-3 py-1 border-black rounded-full hover:bg-opacity-75  transition-all duration-300 text-xs"
+                > Signup </a>
+            @endguest
+            @auth
+                Logout
+            @endauth
+        </div>
 
         <ul class="flex flex-row">
             <x-layouts.nav href="/" :active="request()->is('/')" wire:navigate> Home </x-layouts.nav>
@@ -31,11 +45,15 @@
     </nav>
 
     <main>
+        @if (session('success'))
+            <x-layouts.sucess />
+        @endif
+
         {{ $slot }}
     </main>
 
     <!-- ========== FOOTER ========== -->
-    <footer class="mt-24 w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto bg-black">
+    <footer class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto bg-black border-t border-gray-300">
         <!-- Grid -->
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-10">
             <div class="col-span-full hidden lg:col-span-1 lg:block">

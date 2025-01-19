@@ -1,8 +1,9 @@
 <x-layouts.app>
     <x-slot:title> Style Fusion </x-slot:title>
 
-    <div class="landing bg-black min-h-screen flex items-center justify-center text-white relative overflow-hidden">
 
+
+    <div class="landing bg-black min-h-screen flex items-center justify-center text-white relative overflow-hidden">
         <div class="text-center z-10">
             <h1 class="text-5xl font-extrabold leading-tight mb-4 overflow-hidden whitespace-nowrap border-r-4 border-primary-green animate-typing-loop font-skill">
                 Welcome to Style Fusion's World
