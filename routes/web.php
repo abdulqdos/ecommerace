@@ -17,8 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 
 // Auth
-Route::get('/signup' , Signup::class)->name('signup');
-Route::get('/login' , Login::class)->name('login');
+Route::middleware('guest')->group(function () {
+    Route::get('/signup' , Signup::class)->name('signup');
+    Route::get('/login' , Login::class)->name('login');
+});
+
+
 Route::get('/logout' , function () {
     Auth::logout();
     return redirect('/')->with('success', 'You are now logged out');
@@ -26,7 +30,7 @@ Route::get('/logout' , function () {
 
 
 Route::get('/', index::class )->name('home');
-Route::view('/test', 'test' )->name('test');
+
 
 // items
 Route::get('/items/{item}', ShowItem::class)->name('item.show');

@@ -28,7 +28,7 @@ class Cart extends Component
 
         $this->items = $this->user->cart->items;
 
-
+        $this->dispatch('cart-updated');
         session()->flash('success', 'Item deleted successfully.');
     }
 

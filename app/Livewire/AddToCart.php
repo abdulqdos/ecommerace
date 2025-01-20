@@ -24,10 +24,13 @@ class AddToCart extends Component
 
     public function checkCartStatus()
     {
-        foreach($this->user->cart->items as $item)
+        if($this->user->cart != null)
         {
-            if($item->id == $this->item->id) {
-                $this->flag = true;
+            foreach($this->user->cart->items as $item)
+            {
+                if($item->id == $this->item->id) {
+                    $this->flag = true;
+                }
             }
         }
     }
@@ -51,6 +54,7 @@ class AddToCart extends Component
 
         $this->flag = true;
 
+        $this->dispatch('cart-updated');
     }
 
     public function render()
