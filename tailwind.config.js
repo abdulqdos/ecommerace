@@ -24,6 +24,9 @@ export default {
                 sans: ['Poppins', ...defaultTheme.fontFamily.sans],
                 skill: ['Silkscreen', ...defaultTheme.fontFamily.sans],
             },
+            fontSize: {
+                '2xs': '10px',
+            },
             keyframes: {
                 "typing-loop": {
                     "0%": { width: "0%", borderColor: "primary-green" },
