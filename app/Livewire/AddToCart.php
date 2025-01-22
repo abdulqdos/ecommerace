@@ -48,6 +48,7 @@ class AddToCart extends Component
             $this->cart->total += $this->item->price;
             $this->cart->save();
         }
+
         CartItem::create([
             'cart_id' => $this->cart->id,
             'item_id' => $this->item->id,

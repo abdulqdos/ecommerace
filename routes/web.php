@@ -11,6 +11,7 @@ use App\Livewire\ShowItem;
 use App\Livewire\CategoryItems;
 use App\Livewire\Signup;
 use App\Livewire\Cart;
+use App\Livewire\Checkout;
 use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ Route::middleware('guest')->group(function () {
 // cart
 Route::middleware('auth')->group(function () {
     Route::get('/cart/{cart}', Cart::class)->name('cart') ;
+    Route::get('/checkout', Checkout::class)->name('checkout');
 });
 
 

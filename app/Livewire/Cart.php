@@ -1,9 +1,7 @@
 <?php
-
 namespace App\Livewire;
 
-use App\Models\cartItem;
-use App\Models\User;
+use App\Models\CartItem;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -11,51 +9,80 @@ use Livewire\Component;
 class Cart extends Component
 {
     #[Title('Cart')]
-    public $user ;
-    public $cart ;
-    public $items ;
+    public $user;
+    public $cartItems;
 
     public function mount()
     {
         $this->user = Auth::user();
-        $this->cart = $this->user->cart;
-        $this->items = $this->user->cart->items;
+        $this->authorize('view', $this->user->cart);
+        $this->cartItems = $this->user->cart->items()->withPivot('quantity', 'price')->get();
+//        dd($this->cartItems);
+
     }
 
-    public function deleteItem(cartItem $item)
+    public function deleteItem(CartItem $item)
     {
         if ($item) {
-            $item->delete();
+            $this->user->cart->total -= $item->quantity * $item->price;
+            $this->user->cart->save();
+            $item->delete(); // حذف العنصر من الجدول `cart_items`
+
+            $this->cartItems = $this->user->cart->items;
+            $this->dispatch('cart-updated');
+            session()->flash('success', 'Item deleted successfully.');
         }
-        $this->items = $this->user->cart->items;
-        $this->dispatch('cart-updated');
-        session()->flash('success', 'Item deleted successfully.');
     }
 
-    public function decreaseQuantity(cartItem $item)
+    public function calculateTotal()
+    {
+        $total = 0;
+
+        foreach ($this->cartItems as $cartItem) {
+            $total += $cartItem->pivot->quantity * $cartItem->pivot->price;
+        }
+
+        $this->user->cart->total = $total;
+        $this->user->cart->save();
+
+        return $total;
+    }
+
+    public function decreaseQuantity(CartItem $item)
     {
         if ($item->quantity > 1) {
             $item->quantity--;
             $item->save();
-            $this->items = $this->user->cart->items;
+            $this->cartItems = $this->user->cart->items()->withPivot('quantity', 'price')->get();
+            $this->calculateTotal();
             $this->dispatch('cart-updated');
         } else {
             session()->flash('error', 'Quantity cannot be less than 1.');
         }
     }
 
-    public function increaseQuantity(cartItem $cartItem)
+    public function increaseQuantity(CartItem $item)
     {
-        $cartItem->quantity++;
-        $cartItem->save();
-        $this->items = $this->user->cart->items;
+        $item->quantity++;
+        $item->save();
+
+        $this->cartItems = $this->user->cart->items()->withPivot('quantity', 'price')->get();
+        $this->calculateTotal();
         $this->dispatch('cart-updated');
+    }
+
+    public function save()
+    {
+
+        session()->put('cart', $this->user->cart);
+
+        $this->redirectRoute('checkout');
     }
 
     public function render()
     {
-        return view('livewire.cart' , [
-            'items' => $this->items,
+        return view('livewire.cart', [
+            'items' => $this->cartItems,
         ]);
     }
 }
