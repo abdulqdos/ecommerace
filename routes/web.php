@@ -22,6 +22,12 @@ Route::middleware('guest')->group(function () {
     Route::get('/login' , Login::class)->name('login');
 });
 
+// cart
+Route::middleware('auth')->group(function () {
+    Route::get('/cart/{cart}', Cart::class)->name('cart') ;
+});
+
+
 
 Route::get('/logout' , function () {
     Auth::logout();
@@ -40,7 +46,5 @@ Route::get('/categories', Categories::class)->name('categories.index');
 Route::get('/categories/{category}', CategoryItems::class)->name('categories.show');
 Route::get('/category/{category}', showCategory::class)->name('category.show');
 
-// cart
-Route::middleware('auth')->group(function () {
-    Route::get('/cart/{user}' , Cart::class)->name('cart');
-});
+
+

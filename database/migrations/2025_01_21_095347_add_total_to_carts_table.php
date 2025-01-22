@@ -12,18 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('carts', function (Blueprint $table) {
-            $table->boolean('flag')->default(false);
+            $table->decimal('total', 10, 2)->default(0.00);
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down()
+    public function down(): void
     {
         Schema::table('carts', function (Blueprint $table) {
-            $table->dropColumn('flag');  // حذف الحقل flag
+            //
         });
     }
-
 };

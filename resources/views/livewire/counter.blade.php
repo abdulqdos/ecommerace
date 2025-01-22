@@ -5,7 +5,7 @@
 </span>
     @endif
     <a
-        href="/cart/{{ Auth::user()->id }}"
+        href="/cart/{{ Auth::user()->cart->id }}"
         wire:navigate
     >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 text-white cursor-pointer hover:text-white/75 transition duration-300">

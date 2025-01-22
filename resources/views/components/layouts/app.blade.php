@@ -9,8 +9,9 @@
     @livewireStyles
     @vite(['resources/js/app.js', 'resources/css/app.css'])
 </head>
-<body class="selection:bg-primary-green selection:text-white  font-sans ">
-    <nav class="bg-black flex flex-row items-center justify-between text-white p-4 border-b border-gray-300 border-opacity-75 sticky top-0 z-50">
+<body class="selection:bg-primary-green selection:text-white  font-sans  min-h-screen">
+
+<nav class="bg-black flex flex-row items-center justify-between text-white p-4 border-b border-gray-300 border-opacity-75 sticky top-0 z-50">
         <div class="flex flex-row gap-4 items-center justify-center">
             @guest
                 <a
@@ -33,7 +34,6 @@
 
                 <div class="relative">
                     <livewire:counter wire:poll.2s="updateCart" />
-
                 </div>
 
                 @endauth
@@ -54,7 +54,7 @@
         </div>
     </nav>
 
-    <main>
+    <main class="p-0 m-0">
         @if (session('success'))
             <x-layouts.sucess />
         @endif
@@ -63,7 +63,7 @@
     </main>
 
     <!-- ========== FOOTER ========== -->
-    <footer class="w-full py-10 px-4  sm:px-6 lg:px-8 mx-auto bg-black border-t border-gray-300">
+    <footer class="w-full py-10   sm:px-6 lg:px-8 mx-auto bg-black border-t border-gray-300 ">
         <!-- Grid -->
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 ">
             <div class="col-span-full hidden lg:col-span-1 lg:block">

@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .no-arrows::-webkit-inner-spin-button,
+    .no-arrows::-webkit-outer-spin-button {
+        @apply hidden;
+    }
+    .no-arrows {
+        -moz-appearance: textfield;
+    }
+}

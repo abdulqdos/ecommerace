@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\Models\Cart;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Support\Facades\Auth;
 
 class CartPolicy
 {
@@ -19,10 +20,13 @@ class CartPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Cart $cart): bool
+    // app/Policies/CartPolicy.php
+
+    public function view(User $user,Cart $cart): bool
     {
-        return false;
+        return $user->id == $cart->user_id ;
     }
+
 
     /**
      * Determine whether the user can create models.
