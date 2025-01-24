@@ -30,7 +30,6 @@ class Cart extends Component
 
             $this->cartItems = $this->user->cart->items;
             $this->dispatch('cart-updated');
-            session()->flash('success', 'Item deleted successfully.');
         }
     }
 
@@ -73,9 +72,7 @@ class Cart extends Component
 
     public function save()
     {
-
         session()->put('cart', $this->user->cart);
-
         $this->redirectRoute('checkout');
     }
 

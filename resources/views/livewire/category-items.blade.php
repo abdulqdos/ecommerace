@@ -1,7 +1,6 @@
 <div>
     <x-cards.card-header > {{ $header }}</x-cards.card-header>
-{{--    @dd($items);--}}
-    <div class="flex flex-wrap justify-center gap-5 max-w-[1200px]">
+    <div class="flex flex-wrap justify-center gap-5 max-w-[1200px] mx-auto">
         @foreach($items as $item)
             <div
                 class="flex flex-col bg-white rounded-md w-1/3 max-w-xs gap-3 border border-gray-300 shadow-lg pb-4">
@@ -20,7 +19,12 @@
                     <h2 class="text-lg text-black font-semibold"> {{ $item->name }} </h2>
                     <p class="text-gray-400 hover:text-primary-green">  $ {{ $item->price }} </p>
                     <p class="text-gray-600 hover:text-primary-green cursor-pointer font-semibold transition duration-300"> {{ $item->category->name }} </p>
-                    <a href="#" class="bg-primary-green py-1 px-3 w-full  text-white  border-2 border-white outline outline-4 outline-primary-green hover:bg-dark-green hover:outline-dark-green transition-all duration-300 cursor-pointer  "> Add To Cart </a>
+                    @guest
+                        <a href="/login" wire:navigate class="bg-primary-green py-1 px-3 w-full  text-white  border-2 border-white outline outline-4 outline-primary-green hover:bg-dark-green hover:outline-dark-green transition-all duration-300 cursor-pointer  "> Add To Cart </a>
+                    @endguest
+                    @auth
+                        <livewire:add-to-cart  class="bg-primary-green py-1 px-3 w-full  text-white  border-2 border-white outline outline-4 outline-primary-green hover:bg-dark-green hover:outline-dark-green transition-all duration-300 cursor-pointer" :user="Auth::user()"  :item="$item"/>
+                    @endauth
                 </div>
             </div>
         @endforeach

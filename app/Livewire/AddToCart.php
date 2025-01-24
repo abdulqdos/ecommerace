@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\cartItem;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use App\Models\Cart;
 use App\Models\User;
@@ -13,26 +14,19 @@ class AddToCart extends Component
     public $user ;
     public $item ;
     public $cart;
-    public $flag = false;
+    public $addedToCart = false;
 
     public function mount($user, $item)
     {
         $this->user = $user;
         $this->item = $item;
-        $this->checkCartStatus();
+        $this->checkIfItemInCart();
     }
 
-    public function checkCartStatus()
+    #[on('addedToCart')]
+    public function checkIfItemInCart()
     {
-        if($this->user->cart != null)
-        {
-            foreach($this->user->cart->items as $item)
-            {
-                if($item->id == $this->item->id) {
-                    $this->flag = true;
-                }
-            }
-        }
+        $this->addedToCart = $this->user->cart->items->contains($this->item->id);
     }
 
     public function addToCart()
@@ -56,13 +50,13 @@ class AddToCart extends Component
             'price' => $this->item->price,
         ]);
 
-        $this->flag = true;
+        $this->addedToCart = true;
 
         $this->dispatch('cart-updated');
     }
 
     public function render()
     {
-        return view('livewire.add-to-cart');
+        return view('livewire.add-to-cart' );
     }
 }

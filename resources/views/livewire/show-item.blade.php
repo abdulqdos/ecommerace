@@ -15,7 +15,12 @@
             <h2 class="text-lg text-black font-semibold"> {{ $item->name }} </h2>
             <p class="text-gray-400 hover:text-primary-green">  $ {{ $item->price }} </p>
             <p class="text-gray-600 hover:text-primary-green cursor-pointer font-semibold transition duration-300"> {{ $item->category->name }} </p>
-            <button class="bg-primary-green py-1 px-3 hover:bg-dark-green text-white w-full transition duration-300"> Add To Cart </button>
+            @guest
+                <a href="/login" wire:navigate class="bg-primary-green py-1 px-3 w-full  text-white  border-2 border-white outline outline-4 outline-primary-green hover:bg-dark-green hover:outline-dark-green transition-all duration-300 cursor-pointer  "> Add To Cart </a>
+            @endguest
+            @auth
+                <livewire:add-to-cart  class="bg-primary-green py-1 px-3 w-full  text-white  border-2 border-white outline outline-4 outline-primary-green hover:bg-dark-green hover:outline-dark-green transition-all duration-300 cursor-pointer" :user="Auth::user()"  :item="$item"/>
+            @endauth
         </div>
     </div>
 </div>
