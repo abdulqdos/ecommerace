@@ -24,6 +24,8 @@ class Signup extends Component
     public $password;
     public $password_confirmation ;
 
+    public $remember_me;
+
 
     protected $messages = [
         'name.regex' => 'The name must only contain letters and spaces.',
@@ -41,8 +43,9 @@ class Signup extends Component
             'role' => 'user'
         ]);
 
+        $remember = $this->remember_me ;
 
-        Auth::login($user);
+        Auth::login($user, $remember);
 
         session()->flash('success', 'congratulations! you account has been created.');
 

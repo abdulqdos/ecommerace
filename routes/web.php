@@ -1,17 +1,21 @@
 <?php
 
-use App\Http\Livewire\CartCounter;
+use App\Livewire\Admin;
+use App\Livewire\Admin\Products as AdminProducts;
 use App\Livewire\AddToCart;
+use App\Livewire\Cart;
+use App\Livewire\CategoryItems;
 use App\Livewire\Categories;
+use App\Livewire\Checkout;
+use App\Livewire\Dashboard;
 use App\Livewire\Index;
 use App\Livewire\Login;
+use App\Livewire\Admin\Orders as AdminOrders;
+use App\Livewire\Admin\Customers as AdminCustomers;
 use App\Livewire\Products;
 use App\Livewire\ShowCategory;
 use App\Livewire\ShowItem;
-use App\Livewire\CategoryItems;
 use App\Livewire\Signup;
-use App\Livewire\Cart;
-use App\Livewire\Checkout;
 use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -23,13 +27,6 @@ Route::middleware('guest')->group(function () {
     Route::get('/login' , Login::class)->name('login');
 });
 
-// cart
-Route::middleware('auth')->group(function () {
-    Route::get('/cart/{cart}', Cart::class)->name('cart') ;
-    Route::get('/checkout', Checkout::class)->name('checkout');
-});
-
-
 
 Route::get('/logout' , function () {
     Auth::logout();
@@ -37,16 +34,28 @@ Route::get('/logout' , function () {
 })->name('logout');
 
 
+
+// cart
+Route::middleware('auth')->group(function () {
+    Route::get('/cart/{cart}', Cart::class)->name('cart') ;
+    Route::get('/checkout', Checkout::class)->name('checkout');
+});
+
 Route::get('/', index::class )->name('home');
 
 
 // items
 Route::get('/items/{item}', ShowItem::class)->name('item.show');
 Route::get('/products', products::class)->name('products.index');
-
 Route::get('/categories', Categories::class)->name('categories.index');
 Route::get('/categories/{category}', CategoryItems::class)->name('categories.show');
 Route::get('/category/{category}', showCategory::class)->name('category.show');
 
 
-
+// Admin Page
+Route::middleware( 'admin')->group(function () {
+    Route::get('/admin' ,dashboard::class)->name('admin.index');
+    Route::get('/admin/products' , AdminProducts::class)->name('admin.products');
+    Route::get('/admin/orders' , AdminOrders::class)->name('admin.orders');
+    Route::get('/admin/customers' , AdminCustomers::class)->name('admin.customers');
+});

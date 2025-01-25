@@ -19,11 +19,12 @@ class Login extends Component
     public $password = '';
 
 
+    public $remember_me = false;
     public function authenticate()
     {
         $data = $this->validate();
 
-        if (!Auth::attempt($data)) {
+        if (!Auth::attempt($data,$this->remember_me)) {
             throw ValidationException::withMessages([
                 'email' => 'Sorry , the email or password is incorrect.',
                 'password' => 'Sorry , the email or password is incorrect.',
@@ -33,7 +34,8 @@ class Login extends Component
         $user = Auth::user();
 
         if ($user['role'] == 'admin') {
-            return 'Welcome Back !!';
+            session()->flash('success', 'Hello Admin');
+            $this->redirect('/admin', navigate: true);
         } else {
             session()->flash('success', 'Welcome Back');
             $this->redirect('/', navigate: true);

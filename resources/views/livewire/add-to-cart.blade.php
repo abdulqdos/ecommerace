@@ -1,6 +1,6 @@
 <div class="w-full">
     @if($addedToCart)
-        <a href="/cart/{{$user->id}}" class="bg-primary-green py-3 px-6 w-full text-white border-2 border-white outline outline-4 outline-primary-green hover:bg-dark-green hover:outline-dark-green transition-all duration-300 cursor-pointer rounded-lg shadow-lg flex items-center justify-center">
+        <a href="/cart/{{$user->id}}" class="bg-primary-green py-3 px-6 w-full text-white font-semibold border-2 border-white outline outline-4 outline-primary-green hover:bg-dark-green hover:outline-dark-green transition-all duration-300 cursor-pointer rounded-lg shadow-lg flex items-center justify-center">
             Show Cart
         </a>
     @else

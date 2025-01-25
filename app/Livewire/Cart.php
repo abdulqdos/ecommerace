@@ -17,7 +17,6 @@ class Cart extends Component
         $this->user = Auth::user();
         $this->authorize('view', $this->user->cart);
         $this->cartItems = $this->user->cart->items()->withPivot('quantity', 'price')->get();
-//        dd($this->cartItems);
 
     }
 

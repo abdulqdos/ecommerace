@@ -24,6 +24,7 @@ export default {
             fontFamily: {
                 sans: ['Poppins', ...defaultTheme.fontFamily.sans],
                 skill: ['Silkscreen', ...defaultTheme.fontFamily.sans],
+                dashboard: ['Roboto', 'Arial', ...defaultTheme.fontFamily.sans],
             },
             fontSize: {
                 '2xs': '10px',

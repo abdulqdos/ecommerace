@@ -15,8 +15,18 @@
         <x-forms.input label="Confirm Password" name="password_confirmation" wire:model="password_confirmation" type="password" placeholder="Confirm your password" />
         <x-forms.error name="password" />
 
+        <div class="flex items-center">
+            <input id="remember_me" type="checkbox" wire:model="remember_me" class="h-4 w-4 text-primary-green border-gray-300 rounded focus:ring-primary-green" />
+            <label for="remember_me" class="ml-2 text-white text-sm">Remember me</label>
+        </div>
+
         <div class="flex justify-between items-center">
-            <x-forms.button> Signup </x-forms.button>
+            <button class="flex items-center text-white bg-dark-green rounded-xl py-2 px-6 w-24 min-h-12 font-bold hover:bg-primary-green transition duration-300 cursor-pointer relative">
+                <span wire:loading.remove> Signup </span>
+                <span wire:loading class="absolute  flex items-center justify-center">
+                     <div class="w-6 h-6 border-2 border-white border-t-2 border-t-transparent rounded-full animate-spin"></div>
+                </span>
+            </button>
             <a href="/" class="text-white bg-white/10 rounded-xl py-2 px-6 font-bold hover:bg-white/25 transition duration-300 cursor-pointer"> Back </a>
         </div>
     </form>

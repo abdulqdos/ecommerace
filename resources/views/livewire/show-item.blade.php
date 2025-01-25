@@ -16,7 +16,7 @@
             <p class="text-gray-400 hover:text-primary-green">  $ {{ $item->price }} </p>
             <p class="text-gray-600 hover:text-primary-green cursor-pointer font-semibold transition duration-300"> {{ $item->category->name }} </p>
             @guest
-                <a href="/login" wire:navigate class="bg-primary-green py-1 px-3 w-full  text-white  border-2 border-white outline outline-4 outline-primary-green hover:bg-dark-green hover:outline-dark-green transition-all duration-300 cursor-pointer  "> Add To Cart </a>
+                <a href="/login" wire:navigate class="bg-primary-green py-3 px-6 w-full text-white border-2 border-white outline outline-4 outline-primary-green hover:bg-dark-green hover:outline-dark-green transition-all duration-300 cursor-pointer rounded-lg shadow-lg relative flex items-center justify-center"> Add To Cart </a>
             @endguest
             @auth
                 <livewire:add-to-cart  class="bg-primary-green py-1 px-3 w-full  text-white  border-2 border-white outline outline-4 outline-primary-green hover:bg-dark-green hover:outline-dark-green transition-all duration-300 cursor-pointer" :user="Auth::user()"  :item="$item"/>
