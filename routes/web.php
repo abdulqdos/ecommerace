@@ -2,6 +2,8 @@
 
 use App\Livewire\Admin;
 use App\Livewire\Admin\Products as AdminProducts;
+use App\Livewire\Admin\AddProduct;
+use App\Livewire\Admin\editProduct;
 use App\Livewire\AddToCart;
 use App\Livewire\Cart;
 use App\Livewire\CategoryItems;
@@ -55,7 +57,14 @@ Route::get('/category/{category}', showCategory::class)->name('category.show');
 // Admin Page
 Route::middleware( 'admin')->group(function () {
     Route::get('/admin' ,dashboard::class)->name('admin.index');
+
+    // Products side
     Route::get('/admin/products' , AdminProducts::class)->name('admin.products');
+    Route::get('/admin/products/create' , AddProduct::class)->name('admin.products.create');
+    Route::get('/admin/products/{product}/edit' , editProduct::class)->name('admin.products.edit');
+
+
+
     Route::get('/admin/orders' , AdminOrders::class)->name('admin.orders');
     Route::get('/admin/customers' , AdminCustomers::class)->name('admin.customers');
 });

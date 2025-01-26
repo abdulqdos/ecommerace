@@ -10,6 +10,7 @@ class Item extends Model
     /** @use HasFactory<\Database\Factories\ItemFactory> */
     use HasFactory;
 
+    public $fillable = ['name' , 'description' , 'price' , 'stock' , 'img_url' , 'category_id' , 'featured'];
     public function category() {
         return $this->belongsTo(Category::class);
     }

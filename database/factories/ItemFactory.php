@@ -36,7 +36,7 @@ class ItemFactory extends Factory
             'price' => $this->faker->randomFloat(2, 10, 500),
             'stock' => $this->faker->numberBetween(1, 100),
             'category_id' => $this->faker->numberBetween(1, 5),
-            'img_url' => $this->faker->imageUrl(),
+            'img_url' => 'products_photos/fUnb4pU8WR3eHmRFiJjF7Ww64RnCWh6bPWigCpPj.jpg',
             'created_at' => now(),
             'updated_at' => now(),
         ];
