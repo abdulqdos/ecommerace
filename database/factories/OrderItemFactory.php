@@ -11,7 +11,7 @@ class OrderItemFactory extends Factory
     public function definition(): array
     {
         return [
-            'order_id' => $this->faker->randomElement([ '57' ,'58' , '59' , '60' , '61', '62', '63', '64' ]),
+            'order_id' => $this->faker->randomElement([1 , 2 , 3 , 4 , 5 , 6 , 7]),
             'item_id' => $this->faker->numberBetween(1, 30),
             'quantity' => $this->faker->numberBetween(1, 5),
             'price' => 100,

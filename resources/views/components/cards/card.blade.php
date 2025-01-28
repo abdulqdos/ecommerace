@@ -5,10 +5,10 @@
         href="{{ route('item.show' , ['item' => $item->id]) }}"
         class="overflow-hidden">
         <img
-            src="{{ $item->img_url  }}"
+            src="{{ \Illuminate\Support\Facades\Storage::url($item->img_url) }}"
             alt="Product Image"
             class="w-full h-full object-cover hover:scale-110 transition-transform duration-300 cursor-pointer"
-            onerror="this.onerror=null;this.src='https://picsum.photos/300/300?random={{ $item->id }}';"
+
         />
     </a>
     <div class="flex flex-col justify-center gap-3 px-3">

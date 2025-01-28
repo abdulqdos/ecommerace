@@ -10,9 +10,9 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
-            'customer_id' => $this->faker->numberBetween(1,5),
+            'customer_id' => Customer::factory()->create()->id,
             'total' => $this->faker->randomFloat(2, 20, 500),
-            'status' => $this->faker->randomElement(['pending', 'shipped', 'delivered', 'cancelled']),
+            'status' => $this->faker->randomElement(['pending', 'shipped', 'delivered']),
             'order_date' => now(),
         ];
     }

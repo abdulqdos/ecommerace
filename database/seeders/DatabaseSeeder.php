@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        Order::factory()->count(5)->create();
-        OrderItem::factory()->count(20)->create();
+        Category::factory()->count(5)->create();
+        Item::factory()->count(50)->create();
     }
 }

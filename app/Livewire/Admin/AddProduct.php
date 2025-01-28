@@ -15,7 +15,7 @@ class AddProduct extends Admin
     use withFileUploads;
     #[title('Add Product')]
 
-    #[validate('required|regex:/^[a-zA-Z0-9\s]+$/|max:255')]
+    #[validate('required|regex:/^[a-zA-Z0-9\s,.-]+$/|max:255')]
     public $name ;
 
     #[validate('nullable|string|max:1000')]
@@ -43,15 +43,15 @@ class AddProduct extends Admin
     {
         $this->categories = Category::all();
     }
+
     protected $messages = [
-        'name.regex' => 'The name can only contain letters and numbers.',
+        'name.regex' => 'The name can only contain letters  numbers and special chars .',
     ];
 
 
     public function store()
     {
         $this->validate();
-//        dd($this->featured);
 
         if($this->img) {
             $this->img_url = $this->img->storePublicly('products_photos' , ['disk' => 'public']);

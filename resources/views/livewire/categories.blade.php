@@ -13,10 +13,9 @@
                         href="{{ route('category.show', ['category' => $category->id]) }}"
                       >
                         <img
-                            src="{{ $category->img_url }}"
+                            src="{{ \Illuminate\Support\Facades\Storage::url($category->img_url) }}"
                             alt="Product Image"
-                            class="w-full h-full object-cover hover:scale-110 transition-transform duration-300 cursor-pointer"
-                            onerror="this.onerror=null;this.src='https://picsum.photos/300/300?random={{ $category->id }}';"
+                            class="w-72 h-72 object-cover hover:scale-110 transition-transform duration-300 cursor-pointer"
                         />
                     </a>
 

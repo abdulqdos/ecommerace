@@ -2,10 +2,9 @@
     <div class="w-72 bg-white rounded-lg shadow-lg overflow-hidden  hover:shadow-xl border border-gray-300">
         <div class="overflow-hidden">
             <img
-                src="{{ $category->img_url  }}"
+                src="{{ \Illuminate\Support\Facades\Storage::url($category->img_url) }}"
                 alt="Product Image"
-                class="w-full h-full object-cover hover:scale-110 transition-transform duration-300 cursor-pointer"
-                onerror="this.onerror=null;this.src='https://picsum.photos/300/300?random={{ $category->id }}';"
+                class="w-72 h-72 object-cover hover:scale-110 transition-transform duration-300 cursor-pointer"
             />
         </div>
         <div class="p-4">

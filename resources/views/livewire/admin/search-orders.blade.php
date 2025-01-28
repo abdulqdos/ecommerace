@@ -68,7 +68,7 @@
 
                                         <button
                                               wire:click="setStatus('delivered')"
-                                            class="px-4 py-2 text-sm font-medium rounded-md cursor-pointer transition-all duration-300 text-gray-800 hover:text-primary-green {{ $status == 'shipped' ? 'text-primary-green' : '' }}">
+                                            class="px-4 py-2 text-sm font-medium rounded-md cursor-pointer transition-all duration-300 text-gray-800 hover:text-primary-green {{ $status == 'delivered' ? 'text-primary-green' : '' }}">
                                             Delivered
                                         </button>
 
@@ -99,8 +99,8 @@
                             <td class="p-3 text-sm text-gray-800 text-center">{{ $i + 1 }}</td>
                             <td class="p-3 text-sm text-gray-800">
                                 <div class="flex items-center justify-center gap-4">
-                                    <a href="#" class="transition duration-300 hover:underline hover:text-primary-green">
-                                        {{ $order->customer->first_name . $order->customer->last_name }}
+                                    <a href="customers/{{ $order->customer->id }}" class="transition duration-300 hover:underline hover:text-primary-green">
+                                        {{ $order->customer->first_name . ' ' .  $order->customer->last_name }}
                                     </a>
                                 </div>
                             </td>

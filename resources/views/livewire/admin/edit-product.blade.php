@@ -6,7 +6,6 @@
 
         <!-- Form -->
         <form class="space-y-4" wire:submit="edit">
-
             <!-- Avatar Upload -->
             <div class="mb-6">
                 <label for="file" class="block text-gray-600 mb-2">
@@ -29,6 +28,7 @@
             @error('img')
                 <span class="text-red-500 font-bold italic">{{ $message }}</span>
             @enderror
+
             <div>
                 <label for="name" class="block text-sm text-gray-600">Name product</label>
                 <input

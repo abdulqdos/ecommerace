@@ -1,10 +1,13 @@
 <?php
 
 use App\Livewire\Admin;
+use App\Livewire\Admin\AddCategory;
+use App\Livewire\Admin\EditCategory;
 use App\Livewire\Admin\Products as AdminProducts;
 use App\Livewire\Admin\AddProduct;
 use App\Livewire\Admin\editProduct;
 use App\Livewire\AddToCart;
+use App\Livewire\Admin\ShowCustomer;
 use App\Livewire\Cart;
 use App\Livewire\CategoryItems;
 use App\Livewire\Categories;
@@ -15,6 +18,8 @@ use App\Livewire\Login;
 use App\Livewire\Admin\Orders as AdminOrders;
 use App\Livewire\Admin\showOrder;
 use App\Livewire\Admin\Customers as AdminCustomers;
+use App\Livewire\Admin\Categories as AdminCategories;
+use App\Livewire\Admin\ShowCategory as AdminShowCategory;
 use App\Livewire\Products;
 use App\Livewire\ShowCategory;
 use App\Livewire\ShowItem;
@@ -69,5 +74,13 @@ Route::middleware( 'admin')->group(function () {
     Route::get('/admin/orders' , AdminOrders::class)->name('admin.orders');
     Route::get('/admin/orders/{order}' , showOrder::class)->name('admin.orders.show');
 
+    // Customers side
     Route::get('/admin/customers' , AdminCustomers::class)->name('admin.customers');
+    Route::get('/admin/customers/{customer}' , showCustomer::class)->name('admin.customers.show');
+
+    // Categories side
+    Route::get('/admin/categories' , AdminCategories::class)->name('admin.categories');
+    Route::get('/admin/categories/create' , AddCategory::class)->name('admin.customers.create');
+    Route::get('/admin/categories/{category}' , AdminShowCategory::class)->name('admin.customers.show');
+    Route::get('/admin/categories/{category}/edit' , editCategory::class)->name('admin.customers.edit');
 });
