@@ -11,10 +11,10 @@ class OrderItemFactory extends Factory
     public function definition(): array
     {
         return [
-            'order_id' => Order::factory(),
-            'item_id' => Item::factory(),
+            'order_id' => $this->faker->randomElement([ '57' ,'58' , '59' , '60' , '61', '62', '63', '64' ]),
+            'item_id' => $this->faker->numberBetween(1, 30),
             'quantity' => $this->faker->numberBetween(1, 5),
-            'price' => $this->faker->randomFloat(2, 10, 100),
+            'price' => 100,
             'total' => function (array $attributes) {
                 return $attributes['quantity'] * $attributes['price'];
             },

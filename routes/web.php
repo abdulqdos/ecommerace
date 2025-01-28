@@ -13,6 +13,7 @@ use App\Livewire\Dashboard;
 use App\Livewire\Index;
 use App\Livewire\Login;
 use App\Livewire\Admin\Orders as AdminOrders;
+use App\Livewire\Admin\showOrder;
 use App\Livewire\Admin\Customers as AdminCustomers;
 use App\Livewire\Products;
 use App\Livewire\ShowCategory;
@@ -64,7 +65,9 @@ Route::middleware( 'admin')->group(function () {
     Route::get('/admin/products/{product}/edit' , editProduct::class)->name('admin.products.edit');
 
 
-
+    // orders side
     Route::get('/admin/orders' , AdminOrders::class)->name('admin.orders');
+    Route::get('/admin/orders/{order}' , showOrder::class)->name('admin.orders.show');
+
     Route::get('/admin/customers' , AdminCustomers::class)->name('admin.customers');
 });
