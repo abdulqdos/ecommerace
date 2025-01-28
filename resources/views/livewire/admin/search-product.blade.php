@@ -80,9 +80,8 @@
                                 src="{{ \Illuminate\Support\Facades\Storage::url($product->img_url) }}"
                                 alt="Product Image"
                                 class="w-10 h-10 rounded-md"
-                                onerror="this.onerror=null;this.src='https://picsum.photos/300/300?random={{ $product->id }}';"
                             />
-                            <a href="#" class="transition duration-300 hover:underline hover:text-primary-green">
+                            <a href="products/{{ $product->id }}" class="transition duration-300 hover:underline hover:text-primary-green">
                                 {{ $product->name }}
                             </a>
                         </div>

@@ -4,13 +4,14 @@ namespace App\Livewire;
 
 use App\Models\Category;
 use App\Models\Item;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class CategoryItems extends Component
 {
     use WithPagination;
-
+    #[title('Category - Item')]
     public $category;
 
 

@@ -14,7 +14,7 @@
     </div>
 
     <div class="my-4 bg-white flex flex-col items-center justify-center">
-        <livewire:item header="عروضنا المميزة" />
+        <livewire:item header="عروضنا المميزة" :flag="true" />
     </div>
 
     <div class="my-4 bg-white flex flex-col items-center justify-center">

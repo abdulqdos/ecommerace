@@ -33,12 +33,11 @@ class ItemFactory extends Factory
                 ]),
 
                 'description' => $this->faker->sentence(10),
-                'price' => $this->faker->randomFloat(2, 10, 500),
+                'price' => $this->faker->numberBetween(1, 1000),
                 'stock' => $this->faker->numberBetween(1, 100),
-                'category_id' => $this->faker->numberBetween(1, 5),
-
-                'img_url' => 'products_photos/fUnb4pU8WR3eHmRFiJjF7Ww64RnCWh6bPWigCpPj.jpg',
-
+                'category_id' => $this->faker->numberBetween(1, 3),
+                'featured' => $this->faker->numberBetween(0,1),
+                'img_url' => 'categories_photos/ifSrWthVOoAQbcf8f472CjrjxoNrsDUNrtvwnfgf.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
         ];

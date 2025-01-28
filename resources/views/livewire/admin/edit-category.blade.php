@@ -2,9 +2,6 @@
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-96">
         <h2 class="text-xl font-semibold text-gray-800 mb-2">Edit Category</h2>
         <p class="text-sm text-gray-500 mb-6">Edit category for your system.</p>
-
-
-
         <!-- Form -->
         <form class="space-y-4" wire:submit="edit">
             <!-- Avatar Upload -->

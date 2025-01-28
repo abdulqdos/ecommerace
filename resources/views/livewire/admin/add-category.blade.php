@@ -16,7 +16,7 @@
                     class="w-full px-4 py-2 cursor-pointer bg-transparent border border-transparent rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none @error('form.photo') border-red-500 ring-2 ring-red-500 focus:ring-2 focus:ring-red-500 @enderror"
                 />
                 @if($img)
-                    <img class="w-1/2 inline rounded-full" src="{{ $img->temporaryUrl() }}" />
+                    <img class="w-40 h-40 inline rounded-full" src="{{ $img->temporaryUrl() }}" />
                 @endif
             </div>
         </div>
