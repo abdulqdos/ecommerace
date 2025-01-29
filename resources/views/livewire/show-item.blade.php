@@ -5,10 +5,9 @@
         class="flex flex-col bg-white rounded-md w-1/3 max-w-xs gap-3 border border-gray-300 shadow-lg pb-4">
         <div class="overflow-hidden">
             <img
-                src="{{ $item->img_url  }}"
+                src="{{ \Illuminate\Support\Facades\Storage::url($item->img_url) }}"
                 alt="Product Image"
                 class="w-full h-full object-cover hover:scale-110 transition-transform duration-300 cursor-pointer"
-                onerror="this.onerror=null;this.src='https://picsum.photos/300/300?random={{ $item->id }}';"
             />
         </div>
         <div class="flex justify-center gap-3 flex-col px-3">

@@ -37,7 +37,7 @@ class ItemFactory extends Factory
                 'stock' => $this->faker->numberBetween(1, 100),
                 'category_id' => $this->faker->numberBetween(1, 3),
                 'featured' => $this->faker->numberBetween(0,1),
-                'img_url' => 'categories_photos/ifSrWthVOoAQbcf8f472CjrjxoNrsDUNrtvwnfgf.jpg',
+                'img_url' => 'products_photos/NqyIrBJBIQNMPaFqhRpczx2UAhJTm4ICwVXq6kUu.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
         ];
