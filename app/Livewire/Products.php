@@ -16,7 +16,6 @@ class Products extends Component
     public function mount($header = 'none')
     {
         $this->header = 'كل المنتجات';
-//        $this->dispatch('addToCart');
     }
 
     public $pageName = 'product';

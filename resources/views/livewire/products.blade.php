@@ -22,5 +22,5 @@
         <button wire:click="nextPage('{{ $pageName }}')" wire:loading.attr="disabled" class="bg-primary-green hover:bg-dark-green text-white px-4 py-2 rounded-lg shadow transition duration-300 cursor-pointer disabled:bg-dark-green disabled:opacity-75 disabled:cursor-default" @if (!$items->hasMorePages()) disabled @endif>
             Next >>
         </button>
-    </div
+    </div>
 </div>

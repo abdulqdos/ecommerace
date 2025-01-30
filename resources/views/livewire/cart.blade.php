@@ -23,10 +23,9 @@
                                                     <tr>
                                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 text-center">
                                                             <img
-                                                                src="{{ $item->img_url }}"
+                                                                src="{{ \Illuminate\Support\Facades\Storage::url($item->img_url) }}"
                                                                 alt="Product Image"
                                                                 class="w-10 mx-auto"
-                                                                onerror="this.onerror=null;this.src='https://picsum.photos/300/300?random={{ $item->id }}';"
                                                             />
                                                         </td>
                                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 text-center">

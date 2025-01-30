@@ -19,7 +19,7 @@
             <a href="/login" wire:navigate class="bg-primary-green py-3 px-6 w-full text-white border-2 border-white outline outline-4 outline-primary-green hover:bg-dark-green hover:outline-dark-green transition-all duration-300 cursor-pointer rounded-lg shadow-lg relative flex items-center justify-center "> Add To Cart </a>
         @endguest
         @auth
-            <livewire:add-to-cart class="bg-primary-green py-1 px-3 w-full  text-white  border-2 border-white outline outline-4 outline-primary-green hover:bg-dark-green hover:outline-dark-green transition-all duration-300 cursor-pointer" :user="Auth::user()"  :item="$item"/>
+            <livewire:add-to-cart wire:key="{{  $item->id }}" class="bg-primary-green py-1 px-3 w-full  text-white  border-2 border-white outline outline-4 outline-primary-green hover:bg-dark-green hover:outline-dark-green transition-all duration-300 cursor-pointer" :user="Auth::user()"  :item="$item"/>
         @endauth
     </div>
 </div>

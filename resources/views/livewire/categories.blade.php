@@ -14,7 +14,7 @@
                       >
                         <img
                             src="{{ \Illuminate\Support\Facades\Storage::url($category->img_url) }}"
-                            alt="Product Image"
+                            alt="Category Image"
                             class="w-72 h-72 object-cover hover:scale-110 transition-transform duration-300 cursor-pointer"
                         />
                     </a>

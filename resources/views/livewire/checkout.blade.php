@@ -9,10 +9,9 @@
             <div class="flex items-center gap-6 border-b border-gray-200 py-4 hover:bg-gray-50 transition duration-300">
                 <!-- Product Image -->
                 <img
-                    src="{{ $item->img_url }}"
+                    src="{{ \Illuminate\Support\Facades\Storage::url($item->img_url) }}"
                     alt="Product Image"
                     class="w-16 h-16 object-cover rounded-lg"
-                    onerror="this.onerror=null;this.src='https://picsum.photos/300/300?random={{ $item->id }}';"
                 />
                 <!-- Product Details -->
                 <div class="flex flex-col flex-1 gap-3">
